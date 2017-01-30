@@ -39,9 +39,7 @@ public class Var {
             pixelfont = Font.createFont(Font.TRUETYPE_FONT, new File("Hexametric.ttf")).deriveFont(90f);
             GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
             ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File("Hexametric.ttf")));
-        } catch (FontFormatException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (FontFormatException | IOException e) {
             e.printStackTrace();
         }
 

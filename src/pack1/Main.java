@@ -8,7 +8,6 @@ public class Main {
         new Gui();
         new Var();
         new Movement();
-        //hi
 
     }
 
