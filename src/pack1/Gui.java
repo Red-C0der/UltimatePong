@@ -2,6 +2,11 @@ package pack1;
 
 import javax.swing.*;
 
+import scenes.*;
+
+import java.util.*;
+import java.util.Timer;
+
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 class Gui {
@@ -51,7 +56,19 @@ class Gui {
         Var.jf1.add(lbldraw);
 
         // Start painting
-        lbldraw.paintComponent(Var.jf1.getGraphics());
+        //lbldraw.paintComponent(Var.jf1.getGraphics());
+        //scenes.Start.display(Var.jf1.getGraphics());
+
+        Timer move = new Timer();
+
+        move.scheduleAtFixedRate(new TimerTask(){
+
+             @Override
+             public void run() {
+                 scenes.Game.display(Var.jf1.getGraphics());
+             }
+
+         }, 0, 6);
 
     }
 
