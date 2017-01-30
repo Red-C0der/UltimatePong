@@ -2,6 +2,10 @@ package pack1;
 
 import javax.swing.*;
 
+import java.awt.*;
+
+import static javax.swing.JFrame.EXIT_ON_CLOSE;
+
 class Gui {
 
     Gui() {
@@ -16,7 +20,7 @@ class Gui {
         Var.jf1.setTitle("ULTIMATEPONG");
 
         // Enable closing
-        Var.jf1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        Var.jf1.setDefaultCloseOperation(EXIT_ON_CLOSE);
 
         // Set layout
         Var.jf1.setLayout(null);
@@ -47,6 +51,9 @@ class Gui {
 
         // Add draw to JFrame
         Var.jf1.add(lbldraw);
+
+        // Start painting
+        lbldraw.paintComponent(Var.jf1.getGraphics());
 
     }
 

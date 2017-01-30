@@ -20,7 +20,7 @@ class Movement {
 
                     // Move and stop at border
                     if (Var.y >= 20) {
-                        Var.y -= 20;
+                        Var.y -= 2;
                     }
 
                 } else if (Var.movedown) {

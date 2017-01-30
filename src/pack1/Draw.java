@@ -52,6 +52,7 @@ public class Draw extends JLabel {
         // Draw ball
         g.fillRect(Var.ballx, Var.bally, 20, 20);
 
+        // Repeat painting process
         repaint();
 
     }
