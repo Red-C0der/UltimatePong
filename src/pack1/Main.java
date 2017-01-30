@@ -10,7 +10,10 @@ public class Main {
         new Movement();
         new BallMovement();
         new GegnerMovement();
+        new BallKollision();
 
     }
 
-}
+    }
+
+
