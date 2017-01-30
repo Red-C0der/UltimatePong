@@ -5,7 +5,7 @@ import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 
-public class Var {
+class Var {
 
     // JFrame (Application window)
     static JFrame jf1;
@@ -32,7 +32,7 @@ public class Var {
     static Font pixelfont;
 
 
-    public Var() {
+    Var() {
 
         // Create score font
         try {

@@ -2,9 +2,9 @@ package pack1;
 
 import javax.swing.*;
 
-public class Gui {
+class Gui {
 
-    public Gui() {
+    Gui() {
 
         // Setup new JFrame
         Var.jf1 = new JFrame();
@@ -18,7 +18,7 @@ public class Gui {
         // Enable closing
         Var.jf1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // TODO: Was macht das?
+        // Set layout
         Var.jf1.setLayout(null);
 
         // Disable resize ability
