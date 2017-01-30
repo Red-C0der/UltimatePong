@@ -24,6 +24,7 @@ class Var {
 
     // Movements
     static boolean moveup = false, movedown = false;
+    static boolean gegnermoveup = false, gegnermovedown = false;
 
     // Score counter
     static int playerPoints = 0, gegnerPoints = 0;
