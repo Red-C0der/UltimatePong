@@ -15,9 +15,9 @@ public class KeyHandler implements KeyListener {
     public void keyPressed(KeyEvent e) {
 
         // Start movement
-        if (e.getKeyCode() == KeyEvent.VK_UP) {
+        if (e.getKeyCode() == KeyEvent.VK_W) {
             Var.moveup = true;
-        }else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+        }else if (e.getKeyCode() == KeyEvent.VK_S) {
             Var.movedown = true;
 
         }
@@ -28,9 +28,9 @@ public class KeyHandler implements KeyListener {
     public void keyReleased(KeyEvent e) {
 
         // Stop movement
-        if (e.getKeyCode() == KeyEvent.VK_UP) {
+        if (e.getKeyCode() == KeyEvent.VK_W) {
             Var.moveup = false;
-        }else if (e.getKeyCode() == KeyEvent.VK_DOWN) {
+        }else if (e.getKeyCode() == KeyEvent.VK_S) {
             Var.movedown = false;
 
         }
