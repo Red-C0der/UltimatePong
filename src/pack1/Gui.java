@@ -13,7 +13,7 @@ public class Gui {
         Var.jf1.setSize(Var.screenwidth, Var.screenhight);
 
         // Set window title
-        Var.jf1.setTitle("PONG");
+        Var.jf1.setTitle("ULTIMATEPONG");
 
         // Enable closing
         Var.jf1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
