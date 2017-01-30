@@ -9,8 +9,8 @@ public class Main {
         new Var();
         new Movement();
         new BallMovement();
-        //test
-    }
+        new GegnerMovement();
 
+    }
 
 }
