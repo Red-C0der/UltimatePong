@@ -3,9 +3,9 @@ package pack1;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class GegnerMovement {
+class GegnerMovement {
 
-    public GegnerMovement() {
+    GegnerMovement() {
 
         // Setup timer
         Timer move = new Timer();
