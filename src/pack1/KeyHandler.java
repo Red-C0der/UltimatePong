@@ -17,8 +17,13 @@ public class KeyHandler implements KeyListener {
         // Start movement
         if (e.getKeyCode() == KeyEvent.VK_W) {
             Var.moveup = true;
-        }else if (e.getKeyCode() == KeyEvent.VK_S) {
+        } else if (e.getKeyCode() == KeyEvent.VK_S) {
             Var.movedown = true;
+
+        } else if (e.getKeyCode() == KeyEvent.VK_I) {
+            Var.gegnermoveup = true;
+        } else if (e.getKeyCode() == KeyEvent.VK_K) {
+            Var.gegnermovedown = true;
 
         }
 
@@ -30,8 +35,13 @@ public class KeyHandler implements KeyListener {
         // Stop movement
         if (e.getKeyCode() == KeyEvent.VK_W) {
             Var.moveup = false;
-        }else if (e.getKeyCode() == KeyEvent.VK_S) {
+        } else if (e.getKeyCode() == KeyEvent.VK_S) {
             Var.movedown = false;
+        } else if (e.getKeyCode() == KeyEvent.VK_I) {
+            Var.gegnermoveup = false;
+
+        } else if (e.getKeyCode() == KeyEvent.VK_K) {
+            Var.gegnermovedown = false;
 
         }
 

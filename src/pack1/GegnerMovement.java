@@ -3,9 +3,9 @@ package pack1;
 import java.util.Timer;
 import java.util.TimerTask;
 
-class Movement {
+class GegnerMovement {
 
-    Movement() {
+    GegnerMovement() {
 
         // Setup timer
         Timer move = new Timer();
@@ -16,27 +16,24 @@ class Movement {
             public void run() {
 
                 // Check movement direction
-                if (Var.moveup) {
+                if (Var.gegnermoveup) {
 
                     // Move and stop at border
-                    if (Var.y >= 20) {
-                        Var.y -= 2;
+                    if (Var.gegnery >= 20) {
+                        Var.gegnery -= 2;
                     }
 
-                } else if (Var.movedown) {
+                } else if (Var.gegnermovedown) {
 
                     // Move and stop at border
-                    if (Var.y <= Var.screenhight - 200) {
-                        Var.y += 2;
+                    if (Var.gegnery <= Var.screenhight - 200) {
+                        Var.gegnery += 2;
                     }
                 }
 
             }
-
         }, 0, 6);
 
     }
-
-
 
 }

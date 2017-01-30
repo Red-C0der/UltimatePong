@@ -24,6 +24,7 @@ class Var {
 
     // Movements
     static boolean moveup = false, movedown = false;
+    static boolean gegnermoveup = false, gegnermovedown = false;
 
     static int balldirx = 1, balldiry = -1;
 
