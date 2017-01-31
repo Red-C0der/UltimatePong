@@ -3,7 +3,7 @@ package GameEngine;
 import javax.swing.*;
 import java.awt.*;
 
-public class Scene extends JPanel {
+public abstract class Scene extends JPanel {
 
     public static Graphics graphics;
 
@@ -11,12 +11,34 @@ public class Scene extends JPanel {
     public void paint(Graphics g) {
 
         Graphics2D g2d = (Graphics2D) g;
-        g2d.setColor(Color.RED);
-        g2d.fillOval(0, 0, 30, 30);
-        g2d.drawOval(0, 50, 30, 30);
-        g2d.fillRect(50, 0, 30, 30);
-        g2d.drawRect(50, 50, 30, 30);
+
+        myCode(g2d);
+        drawTextObjects(g2d, g);
+
+        repaint();
 
     }
 
+    public void drawTextObjects(Graphics2D g2d, Graphics g) {
+
+        for (TextObject obj : GameEngine.TextObjects) {
+
+
+            // Check if current scene matches
+            if (GameEngine.currentScene == obj.scene) {
+
+                // Setup if needed
+                if (obj.setup) {
+                    obj.setup(g, g2d);
+                }
+
+                obj.display();       // Execute display void
+
+            }
+
+        }
+
+    }
+
+    public abstract void myCode(Graphics2D g2d);
 }

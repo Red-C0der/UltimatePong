@@ -1,6 +1,10 @@
 package GameEngine;
 
+import pack1.MouseEvent;
+
 import javax.swing.*;
+import java.awt.*;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,8 +14,8 @@ public class GameEngine {
     public static JFrame WindowFrame;
 
     // =====[ JFrame / Window Settings ]=====
-    public static int windowHeight = 800;
-    public static int windowWidth = 600;
+    public static int windowWidth = 800;
+    public static int windowHeight = 600;
     public static int windowStartPosX = 0;
     public static int windowStartPosY = 0;
     public static String windowTitle = "Default Title";
@@ -19,10 +23,12 @@ public class GameEngine {
 
     // =====[ Engine Stuff ]=====
     public static Map<String, Scene> scenes = new HashMap<String, Scene>();
+    public static ArrayList<TextObject> TextObjects = new ArrayList<TextObject>();
 
     public GameEngine() {
 
         WindowFrame = new JFrame();                                     // Initialise JFrame
+        WindowFrame.addMouseListener(new MouseEvent());                 // Add mouse listener for events
 
     }
 
@@ -39,15 +45,16 @@ public class GameEngine {
 
     }
 
-    public static void newScene(String title) {
+    public static void newScene(String title, Scene scene) {
 
-        Scene newscene = new Scene();                                   // Initialise new Scene instance
-        newscene.graphics = WindowFrame.getGraphics();                  // Set graphics for scene
-        WindowFrame.add(newscene);
-        newscene.setBounds(0,0, 800, 800);
-        newscene.paint(WindowFrame.getGraphics());
+        //Scene newscene = new scene();                              // Initialise new Scene instance
+        scene.graphics = WindowFrame.getGraphics();                  // Set graphics for scene
+        WindowFrame.add(scene);
+        scene.setBackground(Color.BLACK);
+        scene.setBounds(0,0, windowWidth, windowHeight);
+        scene.paint(WindowFrame.getGraphics());
 
-        scenes.put(title, newscene);                                    // Add scene to map
+        scenes.put(title, scene);                                    // Add scene to map
 
     }
 
@@ -59,6 +66,7 @@ public class GameEngine {
         }
 
         Scene scene = scenes.get(title);                                // Get requested scene
+        currentScene = title;
         scene.setVisible(true);                                         // Show requested scene
         System.out.println(scene);
 
