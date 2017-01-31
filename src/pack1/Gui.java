@@ -8,49 +8,35 @@ class Gui {
 
     Gui() {
 
-        // Setup new JFrame
-        Var.jf1 = new JFrame();
+        Var.jf1 = new JFrame(); // Setup new JFrame
 
-        // Set window size
-        Var.jf1.setSize(Var.screenwidth, Var.screenhight);
+        Var.jf1.setSize(Var.screenwidth, Var.screenhight); // Set window size
 
-        // Set window title
-        Var.jf1.setTitle("ULTIMATEPONG");
+        Var.jf1.setTitle("ULTIMATEPONG"); // Set window title
 
-        // Enable closing
-        Var.jf1.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        Var.jf1.setDefaultCloseOperation(EXIT_ON_CLOSE);  // Enable closing
 
-        // Set layout
-        Var.jf1.setLayout(null);
+        Var.jf1.setLayout(null);  // Set layout
 
-        // Disable resize ability
-        Var.jf1.setResizable(false);
+        Var.jf1.setResizable(false);  // Disable resize ability
 
-        // Display window
-        Var.jf1.setVisible(true);
+        Var.jf1.setVisible(true); // Display window
 
-        // Set window position on screen
-        Var.jf1.setLocation(0, 0);
+        Var.jf1.setLocation(0, 0); // Set window position on screen
 
-        // Handle key presses
-        Var.jf1.addKeyListener(new KeyHandler());
+        Var.jf1.addKeyListener(new KeyHandler()); // Handle key presses
 
-        Var.jf1.addMouseListener(new MouseEvent());
+        Var.jf1.addMouseListener(new MouseEvent()); // Handle mouse klicked
 
-        // Set focus to window
-        Var.jf1.requestFocus();
+        Var.jf1.requestFocus();  // Set focus to window
 
-        // Setup Draw
-        Draw lbldraw = new Draw();
+        Draw lbldraw = new Draw(); // Setup Draw
 
-        // Where draw will be applied
-        lbldraw.setBounds(0,0, Var.screenwidth, Var.screenhight);
+        lbldraw.setBounds(0, 0, Var.screenwidth, Var.screenhight); // Where draw will be applied
 
-        // Make drawings visible
-        lbldraw.setVisible(true);
+        lbldraw.setVisible(true); // Make drawings visible
 
-        // Add draw to JFrame
-        Var.jf1.add(lbldraw);
+        Var.jf1.add(lbldraw); // Add draw to JFrame
 
 
         // =====[ Setup scenes ]=====
@@ -58,12 +44,10 @@ class Gui {
         TextObject scene_start_title = new TextObject("UltimatePong");
         scene_start_title.scene = "start";
 
+
         // =====[ END Setup scenes ]=====
 
-
-        // Start painting
-        lbldraw.paintComponent(Var.jf1.getGraphics());
-
+        lbldraw.paintComponent(Var.jf1.getGraphics()); // Start painting
 
     }
 

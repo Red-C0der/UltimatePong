@@ -7,26 +7,22 @@ class GegnerMovement {
 
     GegnerMovement() {
 
-        // Setup timer
-        Timer move = new Timer();
+        Timer move = new Timer();  // Setup timer
 
         move.scheduleAtFixedRate(new TimerTask() {
 
             @Override
             public void run() {
 
-                // Check movement direction
-                if (Var.gegnermoveup) {
+                if (Var.gegnermoveup) { // Check movement direction
 
-                    // Move and stop at border
-                    if (Var.gegnery >= 20) {
+                    if (Var.gegnery >= 20) { // Move and stop at border
                         Var.gegnery -= 2;
                     }
 
                 } else if (Var.gegnermovedown) {
 
-                    // Move and stop at border
-                    if (Var.gegnery <= Var.screenhight - 200) {
+                    if (Var.gegnery <= Var.screenhight - 200) { // Move and stop at border
                         Var.gegnery += 2;
                     }
                 }

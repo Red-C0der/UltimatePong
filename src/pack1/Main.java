@@ -3,9 +3,8 @@ package pack1;
 
 public class Main {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) { // Setup Classes
 
-        // Setup classes
         new Gui();
         new Var();
         new Movement();

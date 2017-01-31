@@ -20,7 +20,6 @@ public class TextObject {
 
 
     TextObject(String newText) {
-
         //this.g2d = graphics;       // Set graphics
         this.text = newText;     // Set default text to new one
 
@@ -34,7 +33,7 @@ public class TextObject {
         this.g2d = graphics2D;  // Setup Graphics2D
 
         this.clickHitbox = g.getFontMetrics().getStringBounds(text, this.g);
-        this.clickHitbox.setRect(this.posx - (int) this.g2d.getFontMetrics().getStringBounds(this.text, this.g2d).getWidth()/2, this.posy, this.clickHitbox.getWidth(), this.clickHitbox.getHeight());
+        this.clickHitbox.setRect(this.posx - (int) this.g2d.getFontMetrics().getStringBounds(this.text, this.g2d).getWidth() / 2, this.posy, this.clickHitbox.getWidth(), this.clickHitbox.getHeight());
 
         this.setup = false;     // Disable setup
 
@@ -42,15 +41,11 @@ public class TextObject {
 
     void display() {
 
-        // Set color
-        this.g.setColor(color);
+        this.g.setColor(color); // Set color
 
-        // Set Font
-        this.g.setFont(this.font);
+        this.g.setFont(this.font);  // Set Font
 
-        // Draw string
-        this.g.drawString(text, this.posx, this.posy);
-
+        this.g.drawString(text, this.posx, this.posy); // Draw string
 
     }
 
@@ -60,8 +55,8 @@ public class TextObject {
 
     }
 
-    // Override this for specific instructions
-    void onClick(java.awt.event.MouseEvent e) { }
+    void onClick(java.awt.event.MouseEvent e) { // Override this for specific instructions
+    }
 
 
 }

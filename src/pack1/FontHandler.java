@@ -8,8 +8,7 @@ public class FontHandler {
 
     public static Font defaultFont(float size) {
 
-        // Create score font
-        try {
+        try { // Create score font
             return Font.createFont(Font.TRUETYPE_FONT, new File("Pixellari.ttf")).deriveFont(size);
         } catch (FontFormatException | IOException e) {
             e.printStackTrace();
@@ -20,7 +19,7 @@ public class FontHandler {
 
     public static void drawCenteredText(String text, int y, Graphics2D g) {
 
-        g.drawString(text, Var.screenwidth/2 - (int) g.getFontMetrics().getStringBounds(text, g).getWidth()/2, y);
+        g.drawString(text, Var.screenwidth / 2 - (int) g.getFontMetrics().getStringBounds(text, g).getWidth() / 2, y);
 
     }
 

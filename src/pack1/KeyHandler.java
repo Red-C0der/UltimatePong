@@ -12,17 +12,17 @@ public class KeyHandler implements KeyListener {
     }
 
     @Override
-    public void keyPressed(KeyEvent e) {
+    public void keyPressed(KeyEvent e) { // Start movement
 
-        // Start movement
-        if (e.getKeyCode() == KeyEvent.VK_W) {
+
+        if (e.getKeyCode() == KeyEvent.VK_W) { // Movent for w
             Var.moveup = true;
-        } else if (e.getKeyCode() == KeyEvent.VK_S) {
+        } else if (e.getKeyCode() == KeyEvent.VK_S) { // Movement for s
             Var.movedown = true;
 
-        } else if (e.getKeyCode() == KeyEvent.VK_I) {
+        } else if (e.getKeyCode() == KeyEvent.VK_I) { // Movement for i
             Var.gegnermoveup = true;
-        } else if (e.getKeyCode() == KeyEvent.VK_K) {
+        } else if (e.getKeyCode() == KeyEvent.VK_K) { // Movement for k
             Var.gegnermovedown = true;
 
         }
@@ -30,17 +30,17 @@ public class KeyHandler implements KeyListener {
     }
 
     @Override
-    public void keyReleased(KeyEvent e) {
+    public void keyReleased(KeyEvent e) { // Stop movement
 
-        // Stop movement
-        if (e.getKeyCode() == KeyEvent.VK_W) {
+
+        if (e.getKeyCode() == KeyEvent.VK_W) { // Stop Movement for w
             Var.moveup = false;
-        } else if (e.getKeyCode() == KeyEvent.VK_S) {
+        } else if (e.getKeyCode() == KeyEvent.VK_S) { // Stop Movement for s
             Var.movedown = false;
-        } else if (e.getKeyCode() == KeyEvent.VK_I) {
-            Var.gegnermoveup = false;
 
-        } else if (e.getKeyCode() == KeyEvent.VK_K) {
+        } else if (e.getKeyCode() == KeyEvent.VK_I) { // Stop Movement for i
+            Var.gegnermoveup = false;
+        } else if (e.getKeyCode() == KeyEvent.VK_K) { // Stop Movement for k
             Var.gegnermovedown = false;
 
         }
