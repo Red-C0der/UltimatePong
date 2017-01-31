@@ -11,7 +11,7 @@ public class GameEngine {
 
     // =====[ JFrame / Window Settings ]=====
     public static int windowHeight = 800;
-    public static int windowWidth = 800;
+    public static int windowWidth = 600;
     public static int windowStartPosX = 0;
     public static int windowStartPosY = 0;
     public static String windowTitle = "Default Title";
