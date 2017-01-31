@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class Var {
 
@@ -25,17 +26,19 @@ public class Var {
     // Movements
     static boolean moveup = false, movedown = false;
     static boolean gegnermoveup = false, gegnermovedown = false;
-
     static int balldirx = 1, balldiry = -1;
 
     // Score counter
-    public static int playerPoints = 0, gegnerPoints = 0;
+    static int playerPoints = 0, gegnerPoints = 0;
 
     // Score font
     static Font pixelfont;
 
     // Scene
     static String scene = "start";
+
+    // Array to store the drawtext objects
+    static ArrayList<TextObject> drawtexts = new ArrayList<TextObject>();
 
 
     Var() {

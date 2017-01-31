@@ -1,15 +1,13 @@
 package pack1;
 
-import com.sun.prism.*;
-
 import javax.swing.*;
+import javax.xml.soap.Text;
 import java.awt.*;
 import java.awt.Graphics;
 import java.awt.geom.Rectangle2D;
+import java.util.Iterator;
 
 public class Draw extends JLabel {
-
-    static Rectangle2D mouse_rect_start = null;
 
     protected void paintComponent(Graphics g) {
 
@@ -22,6 +20,35 @@ public class Draw extends JLabel {
         // Enable Antialiasing
         g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
+        // Set color
+        g.setColor(Color.BLACK);
+
+        // Draw filled background
+        g.fillRect(0, 0, Var.screenwidth, Var.screenhight);
+
+        // Iterate over Var.drawtexts
+        for (TextObject obj : Var.drawtexts) {
+
+            // Check if current scene matches
+            if (Var.scene == obj.scene) {
+
+                // Setup if needed
+                if (obj.setup) {
+                    obj.setup(g, g2d);
+                }
+
+                obj.display();       // Execute display void
+
+            }
+
+        }
+
+        repaint();
+
+        /*
+
+        repaint();
+
         // Check scene to draw
         if (Var.scene == "start") {
 
@@ -32,7 +59,7 @@ public class Draw extends JLabel {
             g.fillRect(0, 0, Var.screenwidth, Var.screenhight);
 
             // Set font
-            g.setFont(pack1.FontHandler.defaultFont(80f));
+            g.setFont(FontHandler.defaultFont(80f));
 
             // Set color
             g.setColor(Color.WHITE);
@@ -112,7 +139,7 @@ public class Draw extends JLabel {
 
             repaint();
 
-        }
+        }*/
 
     }
 

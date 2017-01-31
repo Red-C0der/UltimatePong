@@ -8,14 +8,21 @@ public class MouseEvent implements MouseListener {
     @Override
     public void mouseClicked(java.awt.event.MouseEvent e) {
 
-        System.out.println("Clicked!");
+        // Iterate over all textobject instances
+        for (int i = 0; i < Var.drawtexts.size(); i++) {
 
-        if (Objects.equals(Var.scene, "start")) {
-            if (Draw.mouse_rect_start.contains(e.getPoint().getX(), e.getPoint().getY())) {
-                System.out.println("Clicked start!");
-                Var.scene = "game";
-                System.out.println("Starting game..");
+            TextObject obj = (TextObject) Var.drawtexts.get(i);     // Create obj variable for later use
+
+            // Check if current scene matches
+            if (Var.scene == obj.scene) {
+
+                // Check for click
+                if (obj.clickHitbox.contains(e.getPoint().getX(), e.getPoint().getY())) {
+                    obj.onClick(e);
+                }
+
             }
+
         }
 
     }

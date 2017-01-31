@@ -52,6 +52,15 @@ class Gui {
         // Add draw to JFrame
         Var.jf1.add(lbldraw);
 
+
+        // =====[ Setup scenes ]=====
+
+        TextObject scene_start_title = new TextObject("UltimatePong");
+        scene_start_title.scene = "start";
+
+        // =====[ END Setup scenes ]=====
+
+
         // Start painting
         lbldraw.paintComponent(Var.jf1.getGraphics());
 
