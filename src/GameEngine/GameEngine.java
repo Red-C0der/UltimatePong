@@ -50,7 +50,7 @@ public class GameEngine {
         //Scene newscene = new scene();                              // Initialise new Scene instance
         scene.graphics = WindowFrame.getGraphics();                  // Set graphics for scene
         WindowFrame.add(scene);
-        scene.setBackground(Color.BLACK);
+        //scene.setBackground(Color.BLACK);
         scene.setBounds(0,0, windowWidth, windowHeight);
         scene.paint(WindowFrame.getGraphics());
 

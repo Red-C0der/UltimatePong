@@ -11,9 +11,9 @@ public class start extends Scene {
 
         //g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
-        //g2d.setColor(Color.BLACK);
+        g2d.setColor(Color.BLACK);
 
-        //g2d.fillRect(0, 0, GameEngine.windowWidth, GameEngine.windowHeight);
+        g2d.fillRect(0, 0, GameEngine.windowWidth, GameEngine.windowHeight);
 
     }
 }
