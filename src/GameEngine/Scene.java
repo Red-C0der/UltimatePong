@@ -17,7 +17,7 @@ public abstract class Scene extends JPanel {
     @Override
     public void paintComponent(Graphics g) {
 
-        if (!finishedDefinitions) definitions();                            // Check for not executed definitions
+        if (!finishedDefinitions) definitions(); finishedDefinitions = true; // Check for not executed definitions
 
         super.paintComponent(g);                                            // TODO: What does this do exactly?
         GameEngine.debug("Executed Scene.paint");                      // Debug information
@@ -42,6 +42,12 @@ public abstract class Scene extends JPanel {
                 GameEngine.debug("Scene matches!");                    // Debug information
                 if (obj.setup) obj.setup(g, g2d);                           // Call setup if needed
                 obj.display();                                              // Display TextObject
+
+                g.setColor(Color.MAGENTA);                                  // TODO: Remove for deployment!
+                g.drawRect(obj.posx,
+                        obj.posy - (int) obj.clickHitboxSize.getHeight() + 10,
+                        (int) obj.clickHitboxSize.getWidth(),
+                        (int) obj.clickHitboxSize.getHeight());
 
             }
 

@@ -20,8 +20,6 @@ public class Main {
 
         gameEngine.displayScene("titlescreen");
 
-        System.out.println(gameEngine.currentScene);
-
 
 
     }

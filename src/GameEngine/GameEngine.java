@@ -24,12 +24,12 @@ public class GameEngine {
     public static Map<String, Scene> scenes = new HashMap<String, Scene>();
     public static ArrayList<TextObject> TextObjects = new ArrayList<TextObject>();
 
-    static Boolean DEBUG = true;                                        // Print debug information to console
+    static Boolean DEBUG = false;                                        // Print debug information to console
 
     public GameEngine() {
 
         WindowFrame = new JFrame();                                     // Initialise JFrame
-        WindowFrame.addMouseListener(new MouseEvent());                 // Add mouse listener for events
+        WindowFrame.addMouseListener(new MouseEvents());                // Add mouse listener for events
 
     }
 
