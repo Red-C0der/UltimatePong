@@ -43,41 +43,53 @@ public class GameEngine {
         WindowFrame.setLocation(windowStartPosX, windowStartPosY);      // Set window position on screen
         WindowFrame.setVisible(true);                                   // Set visibility
         WindowFrame.requestFocus();                                     // Request focus to window
+
     }
 
-    public static void newScene(String title, Scene scene) {
+    public static void hideWindow() {
+        WindowFrame.setVisible(false);                                  // Hide window
+    }
 
-        //Scene newscene = new scene();                              // Initialise new Scene instance
-        scene.graphics = WindowFrame.getGraphics();                  // Set graphics for scene
-        //scene.setBackground(Color.BLACK);
-        scene.setBounds(0,0, windowWidth, windowHeight);
-        scene.setDoubleBuffered(false);
-        WindowFrame.add(scene);
-        scenes.put(title, scene);                                    // Add scene to map
+    public void newScene(String title, Scene scene, GameEngine gameEngine) {
+
+        //Scene newscene = new scene();                                 // Initialise new Scene instance
+        scene.graphics = WindowFrame.getGraphics();                     // Set graphics for scene
+        scene.setBounds(0,0, windowWidth, windowHeight);         // Set scene / Panel size to window size
+        scene.setDoubleBuffered(false);                                 // Disable double buffering
+        scene.setGameEngine(gameEngine);                                // Set GameEngine for adding content elements
+        WindowFrame.add(scene);                                         // Add scene to Window
+        scenes.put(title, scene);                                       // Add scene to map
 
     }
 
     public static void displayScene(String title) {
 
-        if (!Objects.equals(currentScene, "none")) {
+        if (!Objects.equals(currentScene, "none")) {                 // Check if any scene is displayed
             Scene currentscene = scenes.get(currentScene);              // Get current scene
             currentscene.setVisible(false);                             // Hide scene
+
+            if (currentscene.useUpdate) {
+                currentscene.setUseUpdate(false);                       // TODO: Maybe depreciated -> Replace
+                currentscene.setUseUpdate(true);
+            }
         }
 
-        currentScene = title;
         Scene scene = scenes.get(title);                                // Get requested scene
         scene.setVisible(true);                                         // Show requested scene
-        scene.paintComponent(WindowFrame.getGraphics());
+        currentScene = title;                                           // Set the current scene to input scene
+        scene.paintComponent(WindowFrame.getGraphics());                // Paint scene (and repaint if set so)
 
 
     }
 
-    public static void debug(String text) {
+    // =====[ Methods for adding content to the engine / scenes ]=====
 
-        if (DEBUG) {
-            System.out.println(text);
-        }
+    public void addTextObject(TextObject textObject) {
+
+        TextObjects.add(textObject);                                    // Add class to Array for later use
 
     }
+
+    public static void debug(String text) { if (DEBUG) { System.out.println(text); } }      // Dispaly GameEngine debugging information
 
 }

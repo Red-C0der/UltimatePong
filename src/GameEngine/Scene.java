@@ -11,9 +11,13 @@ public abstract class Scene extends JPanel {
     Boolean useUpdate = false;
     BufferedImage  bf = new BufferedImage( GameEngine.windowWidth, GameEngine.windowHeight,
             BufferedImage.TYPE_INT_RGB);
+    private Boolean finishedDefinitions = false;
+    public GameEngine gameEngine;
 
     @Override
     public void paintComponent(Graphics g) {
+
+        if (!finishedDefinitions) definitions();                            // Check for not executed definitions
 
         super.paintComponent(g);                                            // TODO: What does this do exactly?
         GameEngine.debug("Executed Scene.paint");                      // Debug information
@@ -22,30 +26,22 @@ public abstract class Scene extends JPanel {
         myCode(bf.getGraphics());                                           // Run custom scene code
         GameEngine.debug("Executed Scene.myCode");                     // Debug information
         drawTextObjects(g2d, bf.getGraphics());                             // Draw scenes text objects
-        g.drawImage(bf,0,0,null);                           // Draw buffered image
+        g.drawImage(bf,0,0,null);                            // Draw buffered image
+        if (useUpdate) repaint();                                           // Update scene
 
-        if (useUpdate) { repaint(); }
     }
 
     public void drawTextObjects(Graphics2D g2d, Graphics g) {
 
-        GameEngine.debug("Executed drawTextObjects");                           // Debug information
-
+        GameEngine.debug("Executed drawTextObjects");                  // Debug information
         for (TextObject obj : GameEngine.TextObjects) {
 
-            GameEngine.debug("TextObject: "+obj);                               // Debug information
+            GameEngine.debug("TextObject: "+obj);                      // Debug information
+            if (Objects.equals(GameEngine.currentScene, obj.scene)) {       // Check if scene is the current one
 
-            // Check if current scene matches
-            if (Objects.equals(GameEngine.currentScene, obj.scene)) {
-
-                GameEngine.debug("Scene matches!");                             // Debug information
-
-                // Setup if needed
-                if (obj.setup) {
-                    obj.setup(g, g2d);
-                }
-
-                obj.display();       // Execute display void
+                GameEngine.debug("Scene matches!");                    // Debug information
+                if (obj.setup) obj.setup(g, g2d);                           // Call setup if needed
+                obj.display();                                              // Display TextObject
 
             }
 
@@ -53,7 +49,9 @@ public abstract class Scene extends JPanel {
 
     }
 
-    public abstract void myCode(Graphics g);
+    public void setGameEngine(GameEngine gameEngine) { this.gameEngine = gameEngine; }  // Set game engine
 
-    public void setUseUpdate(Boolean value) { useUpdate = value; }
+    public abstract void definitions();                // Define scene elements like text ... here
+    public abstract void myCode(Graphics g);                                // Additional code to be run on every draw
+    public void setUseUpdate(Boolean value) { useUpdate = value; }          // Sets if the scene should be updated frequently
 }

@@ -16,14 +16,13 @@ public class Main {
         Scene newScene = new start();
         newScene.setUseUpdate(true);
 
-        gameEngine.newScene("none", newScene);
+        gameEngine.newScene("titlescreen", newScene, gameEngine);
 
-        TextObject test_title_text = new TextObject("This is a test string!");
-        test_title_text.scene = "none";
+        gameEngine.displayScene("titlescreen");
 
-        gameEngine.displayScene("none");
+        System.out.println(gameEngine.currentScene);
 
-        gameEngine.currentScene = "none";
+
 
     }
 
