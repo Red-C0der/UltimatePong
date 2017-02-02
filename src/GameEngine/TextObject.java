@@ -9,7 +9,7 @@ public class TextObject {
     Color color = Color.WHITE;  // Default text color
     Font font = FontHandler.defaultFont(80f);   // Default text font
     String text = "Hello World!";   // Default text
-    public static String scene = "none";      // Scene in which this text is displayed
+    public String scene = "none";      // Scene in which this text is displayed
     Rectangle2D clickHitbox;
     Graphics g;
     Graphics2D g2d;
@@ -28,6 +28,8 @@ public class TextObject {
 
     void setup(Graphics graphics, Graphics2D graphics2D) {
 
+        GameEngine.debug("Executed TextObject.setup");                           // Debug information
+
         this.g = graphics;      // Setup Graphics
         this.g2d = graphics2D;  // Setup Graphics2D
 
@@ -39,6 +41,8 @@ public class TextObject {
     }
 
     void display() {
+
+        GameEngine.debug("Executed TextObject.display");                           // Debug information
 
         // Set color
         this.g.setColor(color);

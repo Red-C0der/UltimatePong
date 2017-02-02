@@ -2,6 +2,7 @@ package test;
 
 
 import GameEngine.GameEngine;
+import GameEngine.Scene;
 import GameEngine.TextObject;
 
 public class Main {
@@ -11,12 +12,18 @@ public class Main {
         GameEngine gameEngine = new GameEngine();
 
         gameEngine.displayWindow();
-        gameEngine.newScene("test", new start());
+
+        Scene newScene = new start();
+        newScene.setUseUpdate(true);
+
+        gameEngine.newScene("none", newScene);
 
         TextObject test_title_text = new TextObject("This is a test string!");
-        test_title_text.scene = "test";
+        test_title_text.scene = "none";
 
-        gameEngine.displayScene("test");
+        gameEngine.displayScene("none");
+
+        gameEngine.currentScene = "none";
 
     }
 
